@@ -118,3 +118,8 @@ class EvaluacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Evaluacion
         fields = [ 'nombre','fechaCreacion','fechaCierre','activa', 'grupo', 'prueba']
+
+class ResultadosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Resultado
+        fields = '__all__'

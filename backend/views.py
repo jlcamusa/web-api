@@ -118,3 +118,7 @@ class EvaluacionView(viewsets.ModelViewSet):
             return self.serializer_action_classes[self.action]
         except (KeyError, AttributeError):
             return super(EvaluacionView, self).get_serializer_class()
+        
+class ResultadoView(viewsets.ModelViewSet):
+    queryset = Resultado.objects.all()
+    serializer_class = ResultadosSerializer

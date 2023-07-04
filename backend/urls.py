@@ -12,6 +12,7 @@ router.register(r'persons', views.PersonaView)
 router.register(r'questions', views.PreguntaView)
 router.register(r'alternatives', views.AlternativeView)
 router.register(r'statements', views.StatementView)
+router.register(r'results', views.ResultadoView)
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),

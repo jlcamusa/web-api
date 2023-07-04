@@ -66,3 +66,10 @@ class Alternativa(models.Model):
     enunciado = models.ForeignKey(Enunciado, on_delete=models.CASCADE, related_name='alternativas')
     correcta = models.BooleanField(blank=False)
     contenido = models.TextField()
+
+class Resultado(models.Model):
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='resultados')
+    grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, related_name='resultados')
+    pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE, related_name='resultados')
+    evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE, related_name='resultados')
+    correcta = models.BooleanField()
