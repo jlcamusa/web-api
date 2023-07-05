@@ -54,7 +54,7 @@ class GrupoView(viewsets.ModelViewSet):
 class EvaluacionActivaView(viewsets.ModelViewSet):
     serializer_class = EvaluacionActivaSerializer
     fecha_actual = date.today()
-    queryset = Evaluacion.objects.filter(fechaCierre__gt=fecha_actual)
+    queryset = Evaluacion.objects.filter(activa=True)
 
 #NEW
 # class PruebaListView(viewsets.ModelViewSet):
@@ -122,3 +122,7 @@ class EvaluacionView(viewsets.ModelViewSet):
 class ResultadoView(viewsets.ModelViewSet):
     queryset = Resultado.objects.all()
     serializer_class = ResultadosSerializer
+
+class CompletadoView(viewsets.ModelViewSet):
+    queryset = Completado.objects.all()
+    serializer_class = CompletadoSerializer

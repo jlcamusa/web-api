@@ -13,6 +13,7 @@ router.register(r'questions', views.PreguntaView)
 router.register(r'alternatives', views.AlternativeView)
 router.register(r'statements', views.StatementView)
 router.register(r'results', views.ResultadoView)
+router.register(r'complete', views.CompletadoView)
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),

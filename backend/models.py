@@ -30,6 +30,8 @@ class Usuario(models.Model):
 class Grupo(models.Model):
     nombre = models.CharField(max_length=40)
     cantidadPersonas = models.PositiveSmallIntegerField(default=0)
+    color = models.CharField(max_length=400)
+    imagen = models.CharField(max_length=400)
 
 class Persona(models.Model):
     nombre = models.CharField(max_length=40)
@@ -73,3 +75,11 @@ class Resultado(models.Model):
     pregunta = models.ForeignKey(Pregunta, on_delete=models.CASCADE, related_name='resultados')
     evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE, related_name='resultados')
     correcta = models.BooleanField()
+    dificultad = models.TextField()
+    tag = models.TextField()
+    fechaCreacion = models.DateTimeField(auto_now_add=True)
+
+class Completado(models.Model):
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE, related_name='completado')
+    evaluacion = models.ForeignKey(Evaluacion, on_delete=models.CASCADE, related_name='completado')
+    completado = models.IntegerField()  

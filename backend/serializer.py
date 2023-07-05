@@ -42,7 +42,7 @@ class GrupoRetrieveSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Grupo
-        fields = ('nombre','personas')
+        fields = '__all__'
 
 # class PruebaSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -88,7 +88,7 @@ class PreguntaSerializer(serializers.ModelSerializer):
     enunciados = EnunciadoSerializer(many=True)
     class Meta:
         model = Pregunta
-        fields = ['id', 'orden', 'enunciados', 'tipo']
+        fields = '__all__'
 
 class PruebaSerializer(serializers.ModelSerializer):
     preguntas = PreguntaSerializer(many=True)
@@ -122,4 +122,9 @@ class EvaluacionSerializer(serializers.ModelSerializer):
 class ResultadosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Resultado
+        fields = '__all__'
+
+class CompletadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Completado
         fields = '__all__'
